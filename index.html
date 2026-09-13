@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Resumidor de Textos</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app">
+
+    <aside class="sidebar">
+      <h3>Longitud</h3>
+      <div class="length-options">
+        <button class="length-btn" id="corto">Corto</button>
+        <button class="length-btn" id="mediano">Mediano</button>
+        <button class="length-btn" id="largo">Largo</button>
+      </div>
+      <button class="btn-resumir" id="btnResumir">Resumir</button>
+    </aside>
+
+    <section class="panel">
+      <div class="panel-header">
+        <h2>Original</h2>
+        <button class="icon-btn" title="Subir archivo">⭱</button>
+      </div>
+      <textarea class="text-area" id="textoOriginal" placeholder="Pega aquí tu texto..."></textarea>
+      <div class="panel-footer">
+        <span class="word-count" id="contadorOriginal">Palabras: 0</span>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-header">
+        <h2>Resumen</h2>
+      </div>
+      <textarea class="text-areaR"  id="textoResumen" placeholder="Aquí aparecerá el resumen..."></textarea>
+      <div class="panel-footer">
+        <span class="word-count " id="contadorResumen">Palabras: 0</span>
+        <div class="footer-icons">
+          <button class="icon-btn" title="Regenerar">↻</button>
+          <button class="icon-btn" title="Copiar">⧉</button>
+        </div>
+      </div>
+    </section>
+
+  </div>
+<script src="script.js"></script>
+</body>
+</html>
