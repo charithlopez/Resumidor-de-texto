@@ -1,4 +1,3 @@
-
 let longitud = "";
 
 const textoOriginal = document.querySelector("#textoOriginal");
@@ -10,110 +9,143 @@ const botonMediano = document.querySelector("#mediano");
 const botonLargo = document.querySelector("#largo");
 
 const botonResumir = document.querySelector(".btn-resumir");
-const textoResumen = document.querySelector(".text-areaR");
+const textoResumen = document.querySelector("#textoResumen");
 
-
+const botonCopiar = document.querySelector("#btnCopiar");
 
 textoOriginal.addEventListener("input", function() {
 
-    const texto = textoOriginal.value.trim();
 
-    if (texto === "") {
-        contadorOriginal.textContent = "Palabras: 0";
-        return;
-    }
+botonResumir.textContent = "Resumir";
 
-    const palabras = texto.split(/\s+/);
+const texto = textoOriginal.value.trim();
 
-    contadorOriginal.textContent = "Palabras: " + palabras.length;
+if (texto === "") {
+    contadorOriginal.textContent = "Palabras: 0";
+    return;
+}
+
+const palabras = texto.split(/\s+/);
+
+contadorOriginal.textContent = "Palabras: " + palabras.length;
+
 
 });
-
 
 botonCorto.addEventListener("click", function() {
 
-    longitud = "corto";
 
-    botonCorto.classList.add("seleccionado");
-    botonMediano.classList.remove("seleccionado");
-    botonLargo.classList.remove("seleccionado");
+longitud = "corto";
+
+botonCorto.classList.add("seleccionado");
+botonMediano.classList.remove("seleccionado");
+botonLargo.classList.remove("seleccionado");
+
+botonResumir.textContent = "Resumir";
+
 
 });
-
 
 botonMediano.addEventListener("click", function() {
 
-    longitud = "mediano";
 
-    botonMediano.classList.add("seleccionado");
-    botonCorto.classList.remove("seleccionado");
-    botonLargo.classList.remove("seleccionado");
+longitud = "mediano";
+
+botonMediano.classList.add("seleccionado");
+botonCorto.classList.remove("seleccionado");
+botonLargo.classList.remove("seleccionado");
+
+botonResumir.textContent = "Resumir";
+
 
 });
-
 
 botonLargo.addEventListener("click", function() {
 
-    longitud = "largo";
 
-    botonLargo.classList.add("seleccionado");
-    botonCorto.classList.remove("seleccionado");
-    botonMediano.classList.remove("seleccionado");
+longitud = "largo";
+
+botonLargo.classList.add("seleccionado");
+botonCorto.classList.remove("seleccionado");
+botonMediano.classList.remove("seleccionado");
+
+botonResumir.textContent = "Resumir";
+
 
 });
 
-
 botonResumir.addEventListener("click", async function() {
 
-    console.log("El botón funciona");
 
-    const texto = textoOriginal.value.trim();
+console.log("El botón funciona");
 
-    if (texto === "") {
-        textoResumen.value = "Primero escribe un texto.";
-        contadorResumen.textContent = "Palabras: 0";
-        return;
-    }
+const texto = textoOriginal.value.trim();
 
-    if (longitud === "") {
-        textoResumen.value = "Primero selecciona una longitud.";
-        contadorResumen.textContent = "Palabras: 0";
-        return;
-    }
+if (texto === "") {
+    textoResumen.value = "Primero escribe un texto.";
+    contadorResumen.textContent = "Palabras: 0";
+    return;
+}
 
-    console.log("Voy a enviar el texto al servidor");
+if (longitud === "") {
+    textoResumen.value = "Primero selecciona una longitud.";
+    contadorResumen.textContent = "Palabras: 0";
+    return;
+}
 
-    const respuesta = await fetch("http://localhost:3000/resumir", {
+botonResumir.textContent = "Resumiendo...";
 
-        method: "POST",
+console.log("Voy a enviar el texto al servidor");
 
-        headers: {
-            "Content-Type": "application/json"
-        },
+const respuesta = await fetch("http://localhost:3000/resumir", {
 
-        body: JSON.stringify({
-            texto: texto,
-            longitud: longitud
-        })
+    method: "POST",
 
-    });
+    headers: {
+        "Content-Type": "application/json"
+    },
 
-    const data = await respuesta.json();
+    body: JSON.stringify({
+        texto: texto,
+        longitud: longitud
+    })
 
-    const resumen = data.resumen.trim();
+});
 
-    textoResumen.value = resumen;
+const data = await respuesta.json();
 
-    if (resumen === "") {
+const resumen = data.resumen.trim();
 
-        contadorResumen.textContent = "Palabras: 0";
+textoResumen.value = resumen;
 
-    } else {
+if (resumen === "") {
 
-        const palabras = resumen.split(/\s+/);
+    contadorResumen.textContent = "Palabras: 0";
 
-        contadorResumen.textContent = "Palabras: " + palabras.length;
+} else {
 
-    }
+    const palabras = resumen.split(/\s+/);
+
+    contadorResumen.textContent = "Palabras: " + palabras.length;
+
+}
+
+botonResumir.textContent = "Resumir";
+
+
+});
+
+botonCopiar.addEventListener("click", function() {
+
+
+const resumen = textoResumen.value;
+
+if (resumen === "") {
+    return;
+}
+
+navigator.clipboard.writeText(resumen);
+
+alert("Texto copiado");
 
 });
