@@ -1,160 +1,155 @@
 * {
   box-sizing: border-box;
   font-family: 'Segoe UI', Arial, sans-serif;
-}
+  }
 
 body {
-  margin: 0;
-  background-color: #f5ede1;
-  padding: 24px;
+margin: 0;
+background-color: #f5ede1;
+padding: 24px;
 }
 
 .app {
-  display: grid;
-  grid-template-columns: 180px 1fr 1fr;
-  gap: 20px;
-  max-width: 1100px;
-  margin: 0 auto;
+display: grid;
+grid-template-columns: 180px 1fr 1fr;
+gap: 20px;
+max-width: 1100px;
+margin: 0 auto;
 }
 
 /* Sidebar */
 .sidebar {
-  display: flex;
-  flex-direction: column;
-  padding-top: 40px;
+display: flex;
+flex-direction: column;
+padding-top: 40px;
 }
 
 .sidebar h3 {
-  margin: 0 0 12px 4px;
-  font-weight: 600;
-  color: #3a3a3a;
+margin: 0 0 12px 4px;
+font-weight: 600;
+color: #3a3a3a;
 }
 
 .length-options {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-bottom: 30px;
+display: flex;
+flex-direction: column;
+gap: 10px;
+margin-bottom: 30px;
 }
 
 .length-btn {
-  padding: 10px;
-  border: 1px solid #d8cdbb;
-  border-radius: 10px;
-  background-color: #f5ede1;
-  color: #3a3a3a;
-  cursor: pointer;
-  font-size: 14px;
-  transition: all 0.2s;
+padding: 10px;
+border: 1px solid #d8cdbb;
+border-radius: 10px;
+background-color: #f5ede1;
+color: #3a3a3a;
+cursor: pointer;
+font-size: 14px;
+transition: all 0.2s;
 }
+
 .length-btn.seleccionado {
-    background-color:#c98a4b;
-    color: white;
+background-color: #c98a4b;
+color: white;
 }
 
 .length-btn:hover {
-  background-color: #ece0cd;
-}
-
-.length-btn.active {
-  background-color: #3a3a3a;
-  color: #fff;
-  border-color: #3a3a3a;
+background-color: #ece0cd;
 }
 
 .btn-resumir {
-  margin-top: auto;
-  padding: 14px;
-  border: none;
-  border-radius: 10px;
-  background-color: #c98a4b;
-  color: #fff;
-  font-size: 15px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.2s;
+margin-top: auto;
+padding: 14px;
+border: none;
+border-radius: 10px;
+background-color: #c98a4b;
+color: #fff;
+font-size: 15px;
+font-weight: 600;
+cursor: pointer;
+transition: background-color 0.2s;
 }
 
 .btn-resumir:hover {
-  background-color: #b5763a;
+background-color: #b5763a;
 }
 
 /* Panels */
 .panel {
-  background-color: #fdfaf5;
-  border: 1px solid #e5dac8;
-  border-radius: 14px;
-  padding: 18px;
-  display: flex;
-  flex-direction: column;
-  min-height: 380px;
+background-color: #fdfaf5;
+border: 1px solid #e5dac8;
+border-radius: 14px;
+padding: 18px;
+display: flex;
+flex-direction: column;
+min-height: 380px;
 }
 
 .panel-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 12px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 12px;
 }
 
 .panel-header h2 {
-  margin: 0;
-  font-size: 22px;
-  color: #2b2b2b;
+margin: 0;
+font-size: 22px;
+color: #2b2b2b;
 }
 
 .icon-btn {
-  background: none;
-  border: none;
-  font-size: 18px;
-  color: #6b6b6b;
-  cursor: pointer;
-  padding: 4px;
+background: none;
+border: none;
+font-size: 18px;
+color: #6b6b6b;
+cursor: pointer;
+padding: 4px;
 }
 
 .icon-btn:hover {
-  color: #2b2b2b;
+color: #2b2b2b;
 }
 
 .text-area {
-  flex: 1;
-  resize: none;
-  border: none;
-  background: transparent;
-  font-size: 14px;
-  line-height: 1.6;
-  color: #4a4a4a;
-  outline: none;
-  font-family: inherit;
+flex: 1;
+resize: none;
+border: none;
+background: transparent;
+font-size: 14px;
+line-height: 1.6;
+color: #4a4a4a;
+outline: none;
+font-family: inherit;
 }
 
 .text-areaR {
-  flex: 1;
-  resize: none;
-  border: none;
-  background: transparent;
-  font-size: 14px;
-  line-height: 1.6;
-  color: #4a4a4a;
-  outline: none;
-  font-family: inherit;
+flex: 1;
+resize: none;
+border: none;
+background: transparent;
+font-size: 14px;
+line-height: 1.6;
+color: #4a4a4a;
+outline: none;
+font-family: inherit;
 }
 
 .panel-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 10px;
-  border-top: 1px solid #eee2d0;
-  padding-top: 10px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-top: 10px;
+border-top: 1px solid #eee2d0;
+padding-top: 10px;
 }
 
 .word-count {
-  font-size: 13px;
-  color: #8a8a8a;
+font-size: 13px;
+color: #8a8a8a;
 }
 
 .footer-icons {
-  display: flex;
-  gap: 10px;
+display: flex;
+gap: 10px;
 }
